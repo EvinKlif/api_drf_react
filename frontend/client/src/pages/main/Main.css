@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Main {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    90deg,
+    rgba(1, 191, 179, 1) 20%,
+    rgba(143, 226, 57, 0.711922268907563) 50%,
+    rgba(1, 191, 179, 1) 80%
+  );
+  justify-content: center;
+  align-items: center;
+}
+
+.mainField{
+    position: relative;
+    width: 80%;
+    height: 90%;
+    background-color: rgb(26, 26, 26);
+    border-radius: 0 0 1.5em 1.5em;
+    box-shadow: 0px 0px 30px 10px rgba(0, 0, 0);
+}
