@@ -3,6 +3,9 @@ import "./Navbar.css";
 import logo from "../../image/hero-logo.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import {userToken} from '../../api/Axios';
+import mainUrl from '../../api/host';
+
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -10,10 +13,14 @@ const Navbar = () => {
   const postPage = () => {
     navigate("/createpage");
   };
-
+ 
+function getUserId () {
+  userToken(token)
+};
+getUserId()
  function exit() {
     const resp = axios.post(
-        "http://127.0.0.1:8000/auth/token/logout/", token ,
+        `http://${mainUrl}/auth/token/logout/`, token ,
     {
       headers: {
         Authorization: `Token ${token}`,

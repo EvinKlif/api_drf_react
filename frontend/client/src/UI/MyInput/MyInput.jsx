@@ -2,13 +2,14 @@ import React from "react";
 import cl from "./MyInput.module.css";
 import { useState, useContext } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Context } from "../../context";
+import mainUrl from '../../api/host';
+
+
 
 
 function MyInput(props) {
-  let token = localStorage.getItem('token')
-  let user = localStorage.getItem('user')
+  let token = localStorage.getItem('token');
+  let user_id = localStorage.getItem('user_id');
   const [titleMsg, setTitleMsg] = useState("");
   const [contentMsg, setContentMsg] = useState("");
   let varTitle = ""
@@ -20,12 +21,12 @@ function MyInput(props) {
     if (props.type === "create")
     {
           const resp = await axios.post(
-          "http://127.0.0.1:8000/api/notes",
+          `http://${mainUrl}/api/notes`,
 
       {
         title: titleMsg,
         content: contentMsg,
-        user: user,
+        user: user_id,
       },
       {
         headers: {
@@ -50,11 +51,11 @@ function MyInput(props) {
         varContent = contentMsg
       }
       const resp = await axios.put(
-        `http://127.0.0.1:8000/api/notes/update/${props.postpk}/`,
+        `http://${mainUrl}/api/notes/update/${props.postpk}/`,
         {
           title: varTitle,
           content: varContent,
-          user: user,
+          user: user_id,
         },
         {
           headers: {

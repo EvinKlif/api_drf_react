@@ -5,11 +5,12 @@ import usericon from "../../image/user.png";
 import password from "../../image/password.png";
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { userToken} from '../../api/Axios';
 import { Context } from "../../context";
+import mainUrl from '../../api/host';
+
 
 const Login = () => {
-  const { axiosPost, url} = useContext(Context);
+  const { axiosPost, url } = useContext(Context);
   const [user, setUser] = useState("");
   const [pwd, setPwd] = useState("");
   const [err, setErr] = useState('');
@@ -22,14 +23,13 @@ const Login = () => {
     e.preventDefault();
     
   try{
-        const resp = await axios.post("http://127.0.0.1:8000/auth/token/login/",
+        const resp = await axios.post(`http://${mainUrl}/auth/token/login/`,
     {
         username: user,
         password: pwd,
     }).then(response => {
         const token = response.data.auth_token;
         localStorage.setItem('token', token);
-        userToken(token);
         mainPage();
         window.location.reload()
       })

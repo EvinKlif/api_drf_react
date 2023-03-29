@@ -5,7 +5,8 @@ import usericon from "../../image/user.png";
 import password from "../../image/password.png";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { userToken} from '../../api/Axios';
+import { userToken } from '../../api/Axios';
+import mainUrl from '../../api/host';
 
 const Registration = () => {
     const [user, setUser] = useState("");
@@ -21,7 +22,7 @@ const Registration = () => {
       e.preventDefault();
       
     try{
-          const resp = await axios.post("http://127.0.0.1:8000/auth/users/",
+          const resp = await axios.post(`http://${mainUrl}/auth/users/`,
       {
           username: user,
           password: pwd,

@@ -2,9 +2,10 @@ Tutorial
 env
 .vscode
 db.sqlite3
-backend\server\migrations
-backend\server\__pycache__
-backend\backend\__pycache__
-__pycache__
+backend/server/migrations
+backend/server/__pycache__
+backend/backend/__pycache__
+backend/backend/__pycache__/settings.cpython-310.pyc
+__pycache__/
 
 build

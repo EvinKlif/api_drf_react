@@ -13,6 +13,7 @@ import Pagination from "../../components/Pagination/Pagination";
 import { Navigate } from 'react-router-dom';
 
 
+
 let auth = localStorage.getItem('token')
 if(auth){
     <Navigate to='/login'/>

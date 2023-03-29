@@ -4,6 +4,7 @@ import "./PostItem.css";
 import {  useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {Context} from "../../context"
+import mainUrl from '../../api/host';
 
 function PostItem(props) {
   const {posts, setPosts, axiosPost, url } = useContext(Context)
@@ -20,7 +21,7 @@ function PostItem(props) {
  
   async function deletePost(delPost) {
     const action = await axios.delete(
-      `http://127.0.0.1:8000/api/notes/delete/${delPost}/`,
+      `http://${mainUrl}/api/notes/delete/${delPost}/`,
       {
         headers: {
           Authorization: `Token ${token}`,

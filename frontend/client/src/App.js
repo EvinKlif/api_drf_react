@@ -10,9 +10,12 @@ import axios from "axios";
 import { useEffect } from "react";
 import PrivateRouters from "./utils/PrivateRouters";
 import Registration from "./pages/Registration/Registration";
+import mainUrl from './api/host';
+
+
 
 function App() {
-  const baseUrl = "http://127.0.0.1:8000/api/notes";
+  const baseUrl = `http://${mainUrl}/api/notes`;
   let token = localStorage.getItem("token");
   const [url, setUrl] = useState(baseUrl);
   const [posts, setPosts] = useState([]);
@@ -53,6 +56,7 @@ function App() {
         posts,
         setPosts,
         axiosPost,
+        mainUrl,
         url,
         setUrl,
         next,
