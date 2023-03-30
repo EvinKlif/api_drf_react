@@ -60,6 +60,6 @@ button:hover {
 
 @media screen and (max-width: 1920px), screen and (max-height: 1080px) {
   .postItem {
-    height: 69px;
+    height: 60px;
   }
 }

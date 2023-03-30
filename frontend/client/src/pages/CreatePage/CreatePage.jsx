@@ -27,7 +27,7 @@ const CreatePage = () => {
         <Navbar setVisible={setModal} />
         <PostsList posts={posts}  setVisible={setModal} />
         <MyModal visible={modal} setVisible={setModal} >
-          <MyInput create={createPost} type={type}/>
+          <MyInput create={createPost} type={type} visible={modal} setVisible={setModal}/>
         </MyModal>
         <Pagination />
       </div>

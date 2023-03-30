@@ -3,6 +3,7 @@ import cl from "./MyInput.module.css";
 import { useState, useContext } from "react";
 import axios from "axios";
 import mainUrl from '../../api/host';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -14,9 +15,17 @@ function MyInput(props) {
   const [contentMsg, setContentMsg] = useState("");
   let varTitle = ""
   let varContent = ""
+  const navigate = useNavigate();
+  const rootClasses = [cl.myModal]
+
+  const mainPage = () => {
+      navigate('/');
+    };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
 
     if (props.type === "create")
     {
@@ -65,11 +74,11 @@ function MyInput(props) {
       );
     }
   }
-
   const createPost = () => {
     const newPos = {title: titleMsg, content: contentMsg}
     props.create(newPos)
-
+    props.setVisible(false)
+    mainPage()
   }
 
   return (
