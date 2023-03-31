@@ -31,13 +31,16 @@ function PostItem(props) {
   }
   
   const viewContent = props.post.content.split(' ').slice(0, 40).join(" ");
-
+  let sliced = props.post.title.slice(0,15);
+if (sliced.length < props.post.title.length) {
+sliced += '...';
+}
 
   return (
     <div className="postItem" onClick={readUpdate}>
       <div className="post__content">
         <strong>
-          {props.number}. {props.post.title} 
+          {props.number}. {sliced} 
         </strong>
         <div className="post__content">{viewContent}</div>
         <div className="post__btn">

@@ -72,6 +72,8 @@ function MyInput(props) {
           },
         }
       );
+      mainPage();
+      window.location.reload();
     }
   }
   const createPost = () => {
